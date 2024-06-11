@@ -15,3 +15,10 @@ FROM elixir:latest
 
 # Install iNotify tools for Phoenix live reloading. See: https://hexdocs.pm/phoenix/installation.html#inotify-tools-for-linux-users
 RUN apt-get update -y && apt-get install inotify-tools -y
+
+RUN mix local.hex
+
+RUN elixir -v
+
+# Install the phoenix application generator
+RUN mix archive.install hex phx_new
